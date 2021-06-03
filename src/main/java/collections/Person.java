@@ -1,0 +1,55 @@
+package collections;
+
+import java.util.Objects;
+
+public class Person {
+    private String surname;
+    private String phoneNumber;
+
+
+    public Person(String surname, String phoneNumber) {
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Person person = (Person) o;
+        return Objects.equals(surname, person.surname) && Objects.equals(phoneNumber, person.phoneNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(surname, phoneNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "surname='" + surname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
+}
